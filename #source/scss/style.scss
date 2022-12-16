@@ -1,0 +1,1570 @@
+@mixin fontP($ff, $fw, $fs, $lh, $color) {
+    font-family: $ff;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh;
+    color: $color;
+}
+
+body { 
+    background-color: #EFEFEF;
+   // padding-left: 162px;
+   // padding-right: 162px;
+   overflow-x: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 150px;
+    padding-left: 90px;
+    padding-right: 90px;
+    z-index: 3;
+
+    @media (max-width: 1550px) {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }
+    @media (max-width: 1400px) {
+
+        .navHeaderList {
+            gap: 40px;
+        }
+
+    }
+    @media (max-width: 1230px) {
+
+        .navHeaderList {
+            display: none;
+        }
+        
+        .header__navButton {
+            display: block;
+        }
+
+        .navHeader.open .navHeaderList {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+
+            z-index: 1;
+            padding: 80px 160px;
+        }
+
+        .navHeader__element {
+            @include fontP('Manrope', 400, 3em, 44px, #828282);
+        }
+
+        .header__navButton {
+            z-index: 2;
+            position: fixed;
+            right: 24vw;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+
+        padding-left: 0;
+
+        .navHeaderList {
+            display: none;
+        }
+        
+        .header__navButton {
+            display: block;
+        }
+
+        .navHeader.open .navHeaderList {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+
+            z-index: 1;
+            padding: 80px 160px;
+        }
+
+        .navHeader__element {
+            @include fontP('Manrope', 400, 3em, 44px, #828282);
+        }
+
+        .header__navButton {
+            z-index: 2;
+            position: fixed;
+            right: 24vw;
+        }
+
+        .headerContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 120px;
+            padding-right: 0px;
+        }
+    }
+}
+
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 252px;
+    padding-right: 252px;
+}
+
+.header__title {
+    display: inline-block;
+    @include fontP('Forum', 400, 3em, 44px, black);
+    letter-spacing: -0.05em;
+    margin-left: 20px;
+}
+
+.header__logo {
+    display: inline-block;
+    max-width: 100px;
+    max-height: 66%;
+}
+
+.navHeaderList {
+    display: flex;
+    flex-direction: row;
+    gap: 67px;
+}
+
+.navHeader__element {
+    @include fontP('Manrope', 400, 1.5em, 33px, black);
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: 0.8s ease; /* Время изменения */
+
+    &:hover::after {
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 2px; /* Высота линии */
+        background-color: #1D1212; /* Цвет подчеркивания при появлении линии*/
+        transition: width 0.5s;  /* Время эффекта */
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        width: 0;
+        height: 2px; /* Высота линии */
+        background-color: black; /* Цвет подчеркивания при исчезании линии*/
+        transition: width 0.5s; /* Время эффекта */
+    }
+    &:hover {
+        @include fontP('Manrope', 400, 1.7em, 33px, black);
+    }
+}
+
+.header__navButton {
+    display: none;
+    border: none;
+    background: none;
+}
+
+.burgerImg {
+    width: 60px;
+    height: 60px;
+}
+
+.page {
+    padding-top: 40px;
+    padding-left: 162px;
+    padding-right: 162px;
+}
+
+.aboutMe__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 180px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 110px;
+    padding-bottom: 32px;
+    padding-top: 25px;
+
+ @media (max-width: 1440px) {
+        .aboutMe__avatarAuthor .aboutMe__rectangle {
+            width: 24vw;
+            height: 55vh;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__img {
+            width: 23vw;
+            height: 52vh;
+        }
+    }
+
+    @media (max-width: 1230px) {  
+        padding-top: 70px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0px;
+        padding-bottom: 0px;
+        gap: 35px;
+        
+
+        .aboutMe__avatarAuthor {
+            margin-right: 80px;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__rectangle {
+            width: 28vw;
+            height: 55vh;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__img {
+            width: 27vw;
+            height: 52vh;
+        }
+
+        .aboutMe__description {
+            margin-left: 20px;
+        }
+
+        .aboutMe__description .aboutMe__paragraph {
+            text-align: center;
+            @include fontP('Forum', 400, 26px, 35px, black);
+        }
+
+        .aboutMe__description .aboutMe__button {
+            display: none;
+        }
+    }
+
+    @media (max-width: 990px) {
+
+        .aboutMe__avatarAuthor {
+            margin-left:  40px;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__rectangle {
+            width: 32vw;
+            height: 55vh;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__img {
+            width: 31vw;
+            height: 52vh;
+        }
+
+        .aboutMe__description {
+            margin-right: 200px;
+        }
+
+        .aboutMe__description .aboutMe__paragraph {
+            width: 60vw;
+            text-align: center;
+            @include fontP('Forum', 400, 26px, 35px, black);
+        }
+
+    }
+
+    @media (max-width: 480px) {
+
+        .aboutMe__avatarAuthor {
+            margin-left: 0px;
+
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__rectangle {
+            width: 93vw;
+            height: 77vh;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__img {
+            width: 91vw;
+            height: 73vh;
+        }
+
+        .aboutMe__description {
+            width: 100vw;
+            margin-top: 200px;
+            margin-left: 60px;
+        }
+
+        .aboutMe__description .aboutMe__paragraph {
+            width: 100vw;
+            text-align: center;
+            @include fontP('Forum', 400, 32px, 42px, black);
+        }
+
+    }
+
+    @media (max-width: 390px) {
+        
+        .aboutMe__avatarAuthor {
+            margin-left: 0px;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__rectangle {
+            width: 100vw;
+            height: 63vh;
+        }
+
+        .aboutMe__avatarAuthor .aboutMe__img {
+            width: 98vw;
+            height: 60vh;
+        }
+
+        .aboutMe__description {
+            width: 100vw;
+            margin-top: 66px;
+            margin-left: 85px;
+        }
+
+        .aboutMe__description .aboutMe__paragraph {
+            width: 100vw;
+            text-align: center;
+            @include fontP('Forum', 400, 32px, 42px, black);
+        }
+
+    }
+
+}
+
+.aboutMe__avatarAuthor {
+    position: relative;
+    width: 22vw;
+    height: 54vh;
+}
+
+.aboutMe__rectangle {
+    position: absolute;
+    width: 19vw;
+    height: 52vh;
+    background: #1D1212;
+    margin-left: 18px;
+}
+
+.aboutMe__img {
+    position: absolute;
+    width: 18vw;
+    height: 48vh;
+    margin-top: 15px;
+}
+
+.aboutMe__description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 50%;
+    max-width: 50%
+}
+
+.aboutMe__paragraph {
+    @include fontP('Forum', 400, 2.2em, 40px, black);
+}
+
+.aboutMe__button {
+    position: absolute;
+    background: none;
+    @include fontP('Manrope', 200, 22px, 33px, black);
+    width: 11vw;
+    height: 7vh;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0.5em 0.5em -0.4em #1D1212;
+      transform: translateY(-0.25em);
+    }
+}
+
+.preambula {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @media (max-width: 1230px) {
+        margin-left: 0px;
+
+        .preambula_phrase {
+            @include fontP('Playfair Display', 400, 2.2em, 53px, black);
+            width: 75vw;
+        }
+
+        .long_line {
+            width: 30vw;
+        }
+    }
+
+    @media (max-width: 990px) {
+        margin-left: 80px;
+        .preambula_phrase {
+            @include fontP('Playfair Display', 400, 2.2em, 53px, black);
+            width: 80vw;
+        }
+
+        .long_line {
+            width: 31vw;
+        }
+    }
+
+    @media (max-width: 480px) {
+        width: 100vw;
+        margin-left: -30px;
+        .preambula_phrase {
+            @include fontP('Playfair Display', 400, 1.5em, 40px, black);
+            width: 100vw;
+        }
+
+        .line {
+            width: 40vw;
+            border-top: 2px solid black;
+        }
+
+        .long_line {
+            width: 66vw;
+        }
+    }
+
+    @media (max-width: 390px) {
+        width: 100vw;
+        margin-left: -40px;
+        .preambula_phrase {
+            @include fontP('Playfair Display', 400, 1.6em, 40px, black);
+            width: 600px;
+        }
+
+        .line {
+            width: 40vw;
+            border-top: 2px solid black;
+        }
+
+        .long_line {
+            width: 66vw;
+        }
+    }
+}
+
+.line {
+    width: 18vw;
+	border-top: 2px solid black;
+}
+
+.long_line {
+    width: 27vw;
+}
+
+.preambula_phrase {
+    @include fontP('Playfair Display', 400, 2.2em, 53px, black);
+    text-align: center;
+    width: 50vw;
+}
+
+.myAbstractions {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    @media (max-width: 1230px) {
+        margin-left: 20px;
+
+        .myAbstractions__container .myAbstractions__phrase {
+            width: 75vw;
+            margin-right: 20px;
+        }
+
+        .long_line {
+            width: 30vw;
+        }
+
+        .myAbstractions__cards {
+            gap: 40px;
+
+        }
+
+        .myAbstractions__card {
+            height: 28vh;
+            width: 17vw;
+        
+        }
+
+        .myAbstractions__card .myAbstractions__rectangle {
+            height: 25vh;
+            width: 14vw;
+        }
+
+        .myAbstractions__card .myAbstractions__img {
+            height: 25vh;
+            width: 14vw;
+        }
+    }
+
+    @media (max-width: 990px) {
+
+        .myAbstractions__title {
+            @include fontP('Playfaur Display', 700, 2.8em, 54px, black);
+            width: 98vw;
+            margin-left: -130px;
+        }
+
+
+        .myAbstractions__container { 
+            width: 100vw;
+            margin-left: -140px;
+        }
+
+        .myAbstractions__cards {
+            gap: 18px;
+            padding-right: 20px;
+            width: 100%;
+            height: 30vh;
+        }
+
+        .myAbstractions__card {
+            height: 25vh;
+            width: 15vw;
+        
+        }
+
+        .myAbstractions__card .myAbstractions__rectangle {
+            height: 23vh;
+            width: 14vw;
+        }
+
+        .myAbstractions__card .myAbstractions__img {
+            height: 23vh;
+            width: 14vw;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+
+        .myAbstractions__title {
+            margin-left: -40px;
+            @include fontP('Playfaur Display', 700, 2.8em, 54px, black);
+            width: 98vw;
+        }
+
+        .line {
+            width: 40vw;
+            border-top: 2px solid black;
+        }
+
+        .long_line {
+            width: 66vw;
+        }
+
+        .myAbstractions__container .myAbstractions__phrase {
+            @include fontP('Playfair Display', 400, 28px, 40px, black);
+            width: 600px;
+            text-align: center;
+        }
+
+        .myAbstractions__container {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 60px; 
+            width: 90vw;
+            margin-left: -20px;
+        }
+
+        .myAbstractions__cards {
+            display: none;
+            gap: 18px;
+            padding-right: 20px;
+            width: 100%;
+            height: 30vh;
+        }
+
+        .myAbstractions__card {
+            height: 34vh;
+            width: 34vw;
+        
+        }
+
+        .myAbstractions__card .myAbstractions__rectangle {
+            height: 30vh;
+            width: 32vw;
+        }
+
+        .myAbstractions__card .myAbstractions__img {
+            height: 30vh;
+            width: 32vw;
+        }
+
+        .myAbstractions__cardsMobile {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 160px;
+        }
+    }
+
+    @media (max-width: 420px) {
+
+
+        .myAbstractions__title {
+            margin-left: -60px;
+            @include fontP('Playfaur Display', 700, 2.8em, 54px, black);
+            width: 115vw;
+        }
+
+        .line {
+            width: 40vw;
+            border-top: 2px solid black;
+        }
+
+        .long_line {
+            width: 66vw;
+        }
+
+        .myAbstractions__container .myAbstractions__phrase {
+            @include fontP('Playfair Display', 400, 28px, 40px, black);
+            width: 600px;
+            text-align: center;
+        }
+
+        .myAbstractions__container {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 60px; 
+            width: 90vw;
+            margin-left: -20px;
+        }
+
+        .myAbstractions__cards {
+            display: none;
+            gap: 18px;
+            padding-right: 20px;
+            width: 100%;
+            height: 30vh;
+        }
+
+        .myAbstractions__card {
+            height: 34vh;
+            width: 34vw;
+        
+        }
+
+        .myAbstractions__card .myAbstractions__rectangle {
+            height: 30vh;
+            width: 32vw;
+        }
+
+        .myAbstractions__card .myAbstractions__img {
+            height: 30vh;
+            width: 32vw;
+        }
+
+        .myAbstractions__cardsMobile {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 160px;
+        }
+    }
+
+
+    @media (max-width: 390px) {
+
+
+        .myAbstractions__title {
+            margin-left: -100px;
+            @include fontP('Playfaur Display', 700, 2.8em, 48px, black);
+            width: 480px;
+        }
+
+        .line {
+            width: 40vw;
+            border-top: 2px solid black;
+        }
+
+        .long_line {
+            width: 66vw;
+        }
+
+        .myAbstractions__container .myAbstractions__phrase {
+            @include fontP('Playfair Display', 400, 28px, 40px, black);
+            width: 600px;
+            text-align: center;
+        }
+
+        .myAbstractions__container {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 60px; 
+            width: 90vw;
+            margin-left: -40px;
+        }
+
+        .myAbstractions__cards {
+            display: none;
+            gap: 18px;
+            padding-right: 20px;
+            width: 100%;
+            height: 30vh;
+        }
+
+        .myAbstractions__card {
+            height: 34vh;
+            width: 42vw;
+        
+        }
+
+        .myAbstractions__card .myAbstractions__rectangle {
+            height: 30vh;
+            width: 38vw;
+        }
+
+        .myAbstractions__card .myAbstractions__img {
+            height: 30vh;
+            width: 38vw;
+        }
+
+        .myAbstractions__cardsMobile {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 130px;
+        }
+    }
+}
+
+.myAbstractions__cardsMobile {
+    display: none;
+}
+
+.myAbstractions__title {
+    @include fontP('Playfaur Display', 700, 3em, 54px, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myAbstractions__container {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px; 
+}
+
+.myAbstractions__phrase {
+    @include fontP('Playfair Display', 400, 2.2em, 53px, black);
+    width: 50vw;
+    text-align: center;
+}
+
+.myAbstractions__cards {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.myAbstractions__slider {
+    padding: 0 4vw;
+}
+
+.myAbstractions__card {
+    align-items: center;
+    width: fit-content;
+}
+
+.myAbstractions__img {
+    position: relative;
+    width: 20vw;
+    height: 50vh;
+    margin-left: 2vw;
+    margin-top: 1.5vw;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: all 0.6s ease;
+
+    &:hover {
+        margin: 0px 0px;
+    }
+}
+
+.myAbstractions__rectangle {
+    position: absolute;
+    width: 20vw;
+    height: 50vh;
+    background: #1D1212;
+}
+
+.mySupports {
+    margin-top: 50px;
+    margin-bottom: 60px;
+
+    @media (max-width: 1230px) {
+        margin-left: 100px;
+
+        .mySupports__img {
+            width: 14vw;
+            height: 21vh;
+        }
+
+
+        .mySupports__description {
+            @include fontP('Forum', 400, 1.5em, 40px, black);
+        }
+    }
+
+    @media (max-width: 980px) {
+        margin-left: 0px;
+        width: 7vw;
+        .mySupports__title {
+            @include fontP('Playfaur Display', 700, 3em, 54px, black);
+           // margin-left: 120px;
+        }
+
+        .mySupports__description {
+            @include fontP('Forum', 400, 1.2em, 32px, black);
+        }
+
+        .mySupports__img {
+            width: 16vw;
+            height: 19vh;
+        }
+    }
+
+    @media (max-width: 480px) {
+        width: 80vw;
+
+        .mySupports__title {
+            margin-right: 10px;
+        }
+
+        .mySupports__description {
+            @include fontP('Forum', 400, 1.7em, 32px, black);
+            text-align: center;
+            width: 100vw;
+        }
+
+        .mySupports__cards {
+            display: none
+        }
+
+        .mySupports__cardsMobile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-right: 20px;
+        }
+
+        .mySupports__card {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mySupports__imgMobile {
+            width: 34vw;
+            height: 18vh;
+            border: 2px solid rgb(255, 255, 255);
+            box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+        }
+        
+        .mySupports__img {
+            width: 34vw;
+            height: 18vh;
+        }
+    }
+
+    @media (max-width: 420px) {
+        width: 100vw;
+
+        .mySupports__title {
+            margin-right: 0px;
+            width: 90vw;
+        }
+
+        .mySupports__description {
+            @include fontP('Forum', 400, 1.7em, 32px, black);
+            text-align: center;
+            width: 100vw;
+        }
+
+        .mySupports__cards {
+            display: none
+        }
+
+        .mySupports__cardsMobile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-right: 20px;
+        }
+
+        .mySupports__card {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mySupports__imgMobile {
+            width: 34vw;
+            height: 18vh;
+            border: 2px solid rgb(255, 255, 255);
+            box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+        }
+        
+        .mySupports__img {
+            width: 34vw;
+            height: 18vh;
+        }
+    }
+
+    @media (max-width: 390px) {
+        width: 85vw;
+        margin: 0 auto;
+        .mySupports__title {
+            //margin-right: 59px;
+            @include fontP('Playfaur Display', 700, 2.6em, 50px, black);
+        }
+
+        .mySupports__description {
+            @include fontP('Forum', 400, 1.7em, 32px, black);
+            text-align: center;
+            width: 440px;
+        }
+
+        .mySupports__cards {
+            display: none
+        }
+
+        .mySupports__cardsMobile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .mySupports__card {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mySupports__imgMobile {
+            width: 40vw;
+            height: 26vh;
+            border: 2px solid rgb(255, 255, 255);
+            box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+        }
+        
+        .mySupports__img {
+            width: 48vw;
+            height: 24vh;
+        }
+    }
+}
+
+.mySupports__cardsMobile {
+    display: none;
+}
+
+.mySupports__title {
+    @include fontP('Playfaur Display', 700, 3em, 54px, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.mySupports__cards {
+    display: flex;
+    flex-direction: column;
+    //gap: ;
+}
+
+.mySupports__card {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySupports__img {
+    width: 14vw;
+    height: 27vh;
+    box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+.mySupports__description {
+    @include fontP('Forum', 400, 2em, 40px, black);
+}
+
+.border {
+    border: 4px solid #FFFFFF;
+}
+
+.noClosedEyes {
+    margin-top: 40px;
+
+    @media (max-width: 1230px) {
+        margin-left: 40px;
+
+        .noClosedEyes__container {
+            gap: 50px;
+        }
+
+        .noClosedEyes__img {
+            width: 25vw;
+            height: 47vh;
+        }
+
+        .noClosedEyes__modalWindowTitle {
+            @include fontP('Playfair Display', 600, 2em, 64px, white);
+            letter-spacing: 0.1em;
+        }
+        
+        .noClosedEyes__info {
+            @include fontP('Forum', 400, 1.5em, 40px, white);
+            letter-spacing: 0.05em;
+        }
+
+        .noClosedEyes__modalWindow {
+            padding: 20px 20px 0px 20px;
+            width: 45%;
+            height: 100%;
+        }
+
+    }
+
+    @media (max-width: 990px) {
+        margin-left: 60px;
+
+        .noClosedEyes__container {
+            gap: 50px;
+        }
+
+        .noClosedEyes__img {
+            width: 25vw;
+            height: 38vh;
+        }
+
+        .noClosedEyes__phrase {
+            width: 100vw;
+        }
+    }   
+
+    @media (max-width: 480px) {
+            width: 100vw;
+            margin-left: 90px;
+        .noClosedEyes__title {
+            @include fontP('Playfair Display', 700, 2.6em, 64px, black);
+            display: flex;
+            align-items: center;
+            width: 100vw;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .noClosedEyes__container {
+            gap: 20px;
+            width: 100vw;
+        }
+
+        .noClosedEyes__img {
+            width: 38vw;
+            height: 28vh;
+        }
+
+        .noClosedEyes__phrase {
+            width: 100vw;
+            margin-top: 100px;
+            margin-bottom: 75px;
+            @include fontP('Forum', 400, 1.6em, 30px, black);
+        }
+
+        .noClosedEyes__modalWindow {
+            padding: 20px 20px 0px 20px;
+            width: 96%;
+            height: 100%;
+        }
+
+    }
+
+    @media (max-width: 420px) {
+        width: 100vw;
+        margin-left: 110px;
+
+    .noClosedEyes__title {
+        @include fontP('Playfair Display', 700, 2.6em, 64px, black);
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .noClosedEyes__container {
+        gap: 20px;
+        width: 100vw;
+    }
+
+    .noClosedEyes__img {
+        width: 36vw;
+        height: 24vh;
+    }
+
+    .noClosedEyes__phrase {
+        width: 500px;
+        margin-left: -60px;
+        margin-top: 100px;
+        margin-bottom: 75px;
+        @include fontP('Forum', 400, 1.6em, 30px, black);
+    }
+}
+
+    @media (max-width: 390px) {
+        width: 100vw;
+        margin-left: 110px;
+
+    .noClosedEyes__title {
+        @include fontP('Playfair Display', 700, 2.6em, 64px, black);
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .noClosedEyes__container {
+        gap: 20px;
+        width: 100vw;
+    }
+
+    .noClosedEyes__img {
+        width: 36vw;
+        height: 24vh;
+    }
+
+    .noClosedEyes__phrase {
+        width: 500px;
+        margin-left: -60px;
+        margin-top: 100px;
+        margin-bottom: 75px;
+        @include fontP('Forum', 400, 1.6em, 30px, black);
+    }
+}
+
+}
+
+.noClosedEyes__title {
+    @include fontP('Playfair Display', 700, 3em, 64px, black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.noClosedEyes__container {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    justify-content: center;
+    transform-origin: left center;
+    transition: all 0.4s ease;
+}
+
+.noClosedEyes__img {
+    display: block;
+    width: 22vw;
+    height: 49vh;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: rotate3d(0.1, 0.8, 0.1, 15deg);
+        box-shadow: 12px -5px 7px 3px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.noClosedEyes__phrase {
+    @include fontP('Forum', 400, 2.2em, 40px, black);
+    display: flex;
+    margin-top: 150px;
+    margin-bottom: 125px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-shadow: -4px -4px 4px #1C1111;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+        text-shadow: 4px 4px 4px #1C1111;
+    }
+}
+
+.noClosedEyes__modalWindow {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 20px 20px 0px 20px;
+    width: 25%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transform: translateX(100%);
+    z-index: 4;
+    transition: all 0.4s ease;
+
+    &:target {
+    transform: translateX(0%);
+    }
+
+    &:target ~ .noClosedEyes__container {
+        opacity: 0.5;
+    }
+}
+
+.noClosedEyes__closeButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1.5em;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    &:hover {
+    text-decoration: none;
+    color: #7e7e7efd;
+    }
+}
+
+.noClosedEyes__modalWindowTitle {
+    @include fontP('Playfair Display', 600, 2em, 64px, white);
+    letter-spacing: 0.1em;
+}
+
+.noClosedEyes__info {
+    @include fontP('Forum', 400, 1.5em, 40px, white);
+    letter-spacing: 0.05em;
+}
+
+footer {
+    background: #494949;
+    background-repeat: repeat-x;
+    background-size: cover;
+    padding-left: 0px;
+    padding-right: 0px;
+   
+
+    @media (max-width: 1230px) {
+        height:auto;
+        z-index: 5;
+        
+        .footer__wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+            padding: 35px 40px 35px 40px;
+        
+        }
+
+    }
+
+    @media (max-width: 990px) {
+        height:auto;
+        z-index: 5;
+        min-width: 1080px;
+        .footer__wrapper {
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            gap: 30vw;
+            align-items: center;
+            padding: 35px 40px 35px 40px;
+            overflow-x: hidden;
+        }
+        
+        .footer__logo {
+            width: 8vw;
+            height: 14vh;
+            margin-right: 0px;
+        }
+        
+        .footer__socialMedias {
+            padding-left: 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer__socialMedia {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+            margin-left: 0px;
+        }
+        
+        .footer__navigation {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;  
+            align-items: center;
+            margin-left: 0px;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+        min-width: 670px;
+        height:auto;
+        z-index: 5;
+        
+        .footer__title {
+            @include fontP('Forum', 400, 1.8em, 40px, white);
+        }
+
+        .footer__wrapper {
+           display: none;
+        }
+
+        .footer__wrapperMobile {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer__socialMedias {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer__socialIcon {
+            width: 8vw;
+            height: 9vh;
+        }
+    }
+
+    @media (max-width: 420px) {
+        min-width: 670px;
+        height:auto;
+        z-index: 5;
+        
+        .footer__title {
+            @include fontP('Forum', 400, 1.8em, 40px, white);
+        }
+
+        .footer__wrapper {
+           display: none;
+        }
+
+        .footer__wrapperMobile {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer__socialMedias {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer__socialIcon {
+            width: 8vw;
+            height: 9vh;
+        }
+    }
+
+    @media (max-width: 390px) {
+        min-width: 670px;
+        height:auto;
+        z-index: 5;
+        
+        .footer__title {
+            @include fontP('Forum', 400, 1.8em, 40px, white);
+        }
+
+        .footer__wrapper {
+           display: none;
+        }
+
+        .footer__wrapperMobile {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer__socialMedias {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer__socialIcon {
+            width: 8vw;
+            height: 9vh;
+        }
+    }
+}
+
+.footer__wrapperMobile {
+    display: none;
+}
+
+.footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 66px 540px 55px 280px;
+
+}
+
+.footer__logo {
+    width: 8vw;
+    height: 14vh;
+    margin-right: 200px;
+}
+
+.footer__socialMedias {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.footer__socialMedia {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer__socialIcon {
+    width: 3vw;
+    height: 4vh;
+    transition: all 0.3s ease;
+    &:hover {
+        filter: invert(4%) sepia(38%) saturate(809%) hue-rotate(314deg) brightness(103%) contrast(92%) drop-shadow(0px 4px 4px #c2acac);
+    }
+}
+
+.footer_linkMedia {
+    text-decoration: none;
+}
+
+.footer__socialTag {
+    @include fontP('Manrope', 400, 1em, 20px, rgba(255, 255, 255, 0.6));
+    transition: all 0.3s ease;
+
+    &:hover {
+        filter: invert(4%) sepia(38%) saturate(812%) hue-rotate(314deg) brightness(110%) contrast(95%) drop-shadow(0px 4px 4px #c2acac);
+    }
+}
+
+.footer__navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  
+    align-items: center;
+    margin-left: 485px;
+}
+
+.footer__navTitle {
+    @include fontP('Playfair Display', 700, 1.2em, 21px, white);
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.footer__listElement {
+    @include fontP('Manrope', 400, 0.8em, 18px, rgba(255, 255, 255, 0.6));
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+
+    &:hover {
+        filter: drop-shadow(3px -1px 4px rgba(255, 255, 255, 0.25));
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.copyright {
+    @include fontP('Manrope', 400, 1em, 20px, white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+}
